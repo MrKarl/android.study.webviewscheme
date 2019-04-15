@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>WebView Test</title>
+    </head>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+        crossorigin="anonymous"></script>
+
+    <body>
+        <button id="refresh">Refresh</button>
+        <button id="goNext">Go Next</button>
+        <div id="directAnchor"> 
+            <div>
+                <h4>Market</h4>
+                
+                <a href="market://details?id=com.shcard.smartpay">market://details?id=com.shcard.smartpay</a><br/>
+                <a href="market://details?id=com.samsung.android.spaylite">market://details?id=com.samsung.android.spaylite</a><br/>
+                <a href="market://details?id=kvp.jjy.MispAndroid320">market://details?id=kvp.jjy.MispAndroid320</a><br/>
+            </div>
+
+
+            <div>
+                <h4>Intent</h4>            
+                <a href="intent://pay?srCode=7297821#Intent;scheme=shinhan-sr-ansimclick;package=com.shcard.smartpay;end;">intent://pay?srCode=7297821#Intent;scheme=shinhan-sr-ansimclick;package=com.shcard.smartpay;end;</a><br/>
+                <a href="intent://open/payment?inflowKey=KCP_T0000&reserveOrderNo=201904122004876432">intent://open/payment?inflowKey=KCP_T0000&reserveOrderNo=201904122004876432</a><br/>
+            </div>
+
+        </div>
+
+
+        <div id="javaScriptHref"> 
+            <div>
+                <h4>Market</h4>
+                <a id="smartpay">market://details?id=com.shcard.smartpay</a><br/>
+                <a id="spaylite">market://details?id=com.samsung.android.spaylite</a><br/>
+                <a id="MispAndroid320">market://details?id=kvp.jjy.MispAndroid320</a><br/>
+            </div>
+
+            <div>
+                <h4>Intent</h4>            
+                <a id="pay">intent://pay?srCode=7297821#Intent;scheme=shinhan-sr-ansimclick;package=com.shcard.smartpay;end;</a><br/>
+                <a id="open">intent://open/payment?inflowKey=KCP_T0000&reserveOrderNo=201904122004876432</a><br/>
+            </div>
+        </div>
+
+
+        <script>
+            $(document).ready(() => {
+                $('#smartpay').click(function(e) {
+                    goToUrl($(this).html());
+                });
+
+                $('#spaylite').click(function(e) {
+                    goToUrl($(this).html());
+                });
+
+                $('#MispAndroid320').click(function(e) {
+                    goToUrl($(this).html());
+                });
+
+                $('#pay').click(function(e) {
+                    goToUrl($(this).html());
+                });
+
+                $('#open').click(function(e) {
+                    goToUrl($(this).html());
+                });
+
+                function goToUrl(url) {
+                    if (confirm("Keep going?")) {
+                        document.location.href = url;
+                    }
+                }
+
+                $('#goNext').click(function(e) {
+                    document.location.href = "test.html";
+                });
+
+                $('#refresh').click(function(e) {
+                    document.location.reload();
+                });
+            });
+        </script>
+    </body>
+</html>
